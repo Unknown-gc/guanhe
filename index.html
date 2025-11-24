@@ -3,67 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>关河未冷 | 独立摄影师</title>
+    <title>关河未冷 | Guanhe Weileng Photography</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Serif SC for the Neo-Chinese look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              vermilion: '#C91F37', // Chinese Red
-              imperial: '#F0C239',  // Gold
-              ink: '#0F0F12',       // Dark Background
-              paper: '#F7F5F0',     // Light Text/Bg
+              'vermilion': '#C91F37',
+              'imperial-gold': '#F0C239',
+              'deep-ink': '#0F0F12',
+              'rice-paper': '#F7F5F0',
+              'stone-gray': '#1c1c1f',
             },
             fontFamily: {
-              serif: ['"Noto Serif SC"', '"Songti SC"', 'serif'],
-              sans: ['"Noto Sans SC"', 'sans-serif'],
+              serif: ['"Noto Serif SC"', '"Playfair Display"', 'serif'],
+              sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            },
+            writingMode: {
+              'vertical-rl': 'vertical-rl',
             },
           },
         },
       }
     </script>
-    <!-- Import Noto Serif SC for that traditional Chinese look -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Noto+Sans+SC:wght@300;400&display=swap" rel="stylesheet">
     <style>
-      body {
-        background-color: #0F0F12;
-        color: #F7F5F0;
-      }
-      /* Hide scrollbar for clean aesthetic */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0F0F12;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #C91F37;
-      }
-      .vertical-text {
+      /* Custom utilities for vertical text */
+      .writing-vertical-rl {
         writing-mode: vertical-rl;
         text-orientation: upright;
+      }
+      /* Hide scrollbar for clean look in specific areas */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
   }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body>
+  <body class="bg-deep-ink text-rice-paper antialiased selection:bg-vermilion selection:text-white">
     <div id="root"></div>
+    <!-- 🔴 修复：添加应用入口脚本，解决部署后黑屏问题 -->
+    <script type="module" src="./index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>

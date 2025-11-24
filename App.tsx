@@ -1,55 +1,86 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Navigation } from './components/Navigation';
-import { HomeSection } from './components/sections/HomeSection';
-import { PortfolioSection } from './components/sections/PortfolioSection';
-import { AboutSection } from './components/sections/AboutSection';
-import { ServicesSection } from './components/sections/ServicesSection';
-import { ContactSection } from './components/sections/ContactSection';
-import { Section } from './types';
+import React from 'react';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Portfolio from './components/Portfolio';
+import About from './components/About';
+import Services from './components/Services';
+import Footer from './components/Footer';
+import Contact from './components/Contact';
+import { useEffect } from 'react';
 
-export default function App() {
-  const [activeSection, setActiveSection] = useState<Section>('home');
+// Scroll to top wrapper
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
-  // Logic to render the correct section
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'home':
-        return <HomeSection />;
-      case 'portfolio':
-        return <PortfolioSection />;
-      case 'about':
-        return <AboutSection />;
-      case 'services':
-        return <ServicesSection />;
-      case 'contact':
-        return <ContactSection />;
-      default:
-        return <HomeSection />;
-    }
-  };
-
+// Home page only shows Hero (no scrolling to other sections)
+const Home: React.FC = () => {
   return (
-    <div className="flex h-screen bg-ink text-paper overflow-hidden font-sans selection:bg-vermilion selection:text-white">
-      {/* Navigation Sidebar */}
-      <Navigation activeSection={activeSection} setSection={setActiveSection} />
-
-      {/* Main Content Area */}
-      <main className="flex-1 relative md:ml-64 h-full bg-ink">
-        {/* We use AnimatePresence to create smooth fade transitions between "pages" */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeSection}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="w-full h-full"
-          >
-            {renderSection()}
-          </motion.div>
-        </AnimatePresence>
-      </main>
-    </div>
+    <>
+      <Hero />
+    </>
   );
+};
+
+const PortfolioPage: React.FC = () => {
+    return (
+        <div className="pt-20 min-h-screen bg-deep-ink flex flex-col justify-between">
+            <Portfolio />
+            <Footer />
+        </div>
+    )
 }
+
+const AboutPage: React.FC = () => {
+    return (
+        <div className="pt-20 min-h-screen bg-stone-gray flex flex-col justify-between">
+            <About />
+            <Footer />
+        </div>
+    )
+}
+
+const ServicesPage: React.FC = () => {
+    return (
+        <div className="pt-20 min-h-screen bg-deep-ink flex flex-col justify-between">
+            <Services />
+            <Footer />
+        </div>
+    )
+}
+
+const ContactPage: React.FC = () => {
+    return (
+        <div className="pt-20 min-h-screen bg-deep-ink flex flex-col justify-between">
+            <Contact />
+            <Footer />
+        </div>
+    )
+}
+
+const App: React.FC = () => {
+  return (
+    <HashRouter>
+      <ScrollToTop />
+      <div className="min-h-screen bg-deep-ink text-rice-paper font-sans selection:bg-vermilion selection:text-white flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+      </div>
+    </HashRouter>
+  );
+};
+
+export default App;
