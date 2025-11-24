@@ -22,7 +22,7 @@ const Portfolio: React.FC<PortfolioProps> = () => {
     : PORTFOLIO_ITEMS.filter(item => item.category === activeCategory);
 
   return (
-    <div className="min-h-screen pt-40 md:pt-32 pb-20 px-4 max-w-7xl mx-auto">
+    <div className="min-h-screen pt-28 md:pt-32 pb-20 px-4 max-w-7xl mx-auto">
       
       {/* Header */}
       <div className="text-center mb-16">

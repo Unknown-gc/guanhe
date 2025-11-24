@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SERVICE_PACKAGES, SERVICE_POLICIES } from '../constants';
 
 const Services: React.FC = () => {
   return (
-    <div className="min-h-screen pt-40 md:pt-32 pb-20 px-4 max-w-5xl mx-auto">
+    <div className="min-h-screen pt-28 md:pt-32 pb-20 px-4 max-w-5xl mx-auto">
       
       {/* Header */}
       <div className="text-center mb-16">

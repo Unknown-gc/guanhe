@@ -5,7 +5,7 @@ import { CONTACT_INFO } from '../constants';
 
 const Contact: React.FC = () => {
   return (
-    <div className="min-h-screen pt-40 md:pt-32 pb-20 px-4 max-w-4xl mx-auto flex items-center justify-center">
+    <div className="min-h-screen pt-28 md:pt-32 pb-20 px-4 max-w-4xl mx-auto flex items-center justify-center">
       
       <div className="w-full bg-white border border-ink/5 p-8 md:p-16 relative overflow-hidden backdrop-blur-md shadow-xl">
         {/* Decorative Background Symbol (Abstract) */}

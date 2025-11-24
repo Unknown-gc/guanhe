@@ -4,7 +4,7 @@ import { BRAND, HERO_IMAGES } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <div className="min-h-screen pt-40 md:pt-32 pb-20 px-4 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <div className="min-h-screen pt-28 md:pt-32 pb-20 px-4 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
       
       {/* Image Side */}
       <motion.div 
