@@ -3,10 +3,9 @@ import { Page, PortfolioItem, ServicePackage, NavItem } from './types';
 // ==========================================
 // 🔴 新手指南 (BEGINNER GUIDE)
 // ==========================================
-// 1. 若要修改图片，请替换 imageUrl 后的链接。
-//    (To change images, replace the link after imageUrl)
-// 2. 若要修改文字，请修改 title (标题) 或 content (内容) 后的文字。
-//    (To change text, modify the text after title or content)
+// 1. 下面的 PORTFOLIO_ITEMS 是我根据您的图片为您整理好的列表。
+// 2. 目前图片显示为黑色背景的“请替换图片”。
+// 3. 请将 imageUrl: "..." 中的引号内容，替换为您真实的图片链接。
 // ==========================================
 
 export const BRAND = {
@@ -33,25 +32,88 @@ export const NAV_ITEMS: NavItem[] = [
   { label: '联系我', enLabel: 'Contact', page: Page.CONTACT },
 ];
 
-// 首页轮播图或展示图 (Hero Images)
+// 🔴 首页大图 (Hero Images)
+// 请在这里放入您最满意的横屏大图（建议使用精卫填海或双人复原的大场景图）
 export const HERO_IMAGES = [
-  "https://picsum.photos/seed/myth1/1920/1080", // 替换这里为你的大图链接
-  "https://picsum.photos/seed/portrait1/1920/1080",
-  "https://picsum.photos/seed/hanfu1/1920/1080"
+  "https://placehold.co/1920x1080/2b2b2b/FFFFFF?text=请替换为+首页大图1(精卫红月)", 
+  "https://placehold.co/1920x1080/2b2b2b/FFFFFF?text=请替换为+首页大图2(双人复原)",
+  "https://placehold.co/1920x1080/2b2b2b/FFFFFF?text=请替换为+首页大图3(绿衣撑伞)"
 ];
 
-// 作品集数据 (Portfolio Data)
+// 🔴 作品集数据 (Portfolio Data)
+// 我已经根据您发的图，为您分好了类。请对应替换图片链接。
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
-  { id: '1', title: '飞升 (Fei Sheng)', category: 'mythology', imageUrl: 'https://picsum.photos/seed/feisheng/600/800', description: '红绿撞色 / 极具张力' },
-  { id: '2', title: '精卫 (Jing Wei)', category: 'mythology', imageUrl: 'https://picsum.photos/seed/jingwei/600/900', description: '神话重现 / 唯美意境' },
-  { id: '3', title: '春之神 (Spring God)', category: 'portrait', imageUrl: 'https://picsum.photos/seed/spring/600/700', description: '唯美情绪 / 自然光影' },
-  { id: '4', title: '罗刹女 (Luo Cha Nu)', category: 'mythology', imageUrl: 'https://picsum.photos/seed/luocha/600/800', description: '暗黑风格 / 情绪人像' },
-  { id: '5', title: '青铜废墟 (Bronze Ruins)', category: 'restoration', imageUrl: 'https://picsum.photos/seed/bronze/600/800', description: '复原造型 / 历史厚重感' },
-  { id: '6', title: '汉宫秋 (Han Palace)', category: 'restoration', imageUrl: 'https://picsum.photos/seed/han/600/600', description: '传统复原 / 汉服摄影' },
-  { id: '7', title: '雪中客 (Snow Walker)', category: 'portrait', imageUrl: 'https://picsum.photos/seed/snow/600/900', description: '外景人像 / 氛围感' },
+  // === 类别：神话与脑洞 (mythology) ===
+  { 
+    id: '1', 
+    title: '精卫 (Jing Wei)', 
+    category: 'mythology', 
+    imageUrl: 'https://placehold.co/600x900/8B1E1E/FFFFFF?text=请替换为+精卫填海(红月海浪)', 
+    description: '红月 / 锁链 / 海浪' 
+  },
+  { 
+    id: '2', 
+    title: '枯骨生花 (Life in Death)', 
+    category: 'mythology', 
+    imageUrl: 'https://placehold.co/600x800/1a1a1a/FFFFFF?text=请替换为+枯骨生花(绿衣骷髅)', 
+    description: '暗黑脑洞 / 生死极意' 
+  },
+  { 
+    id: '3', 
+    title: '神陨 (The Fallen)', 
+    category: 'mythology', 
+    imageUrl: 'https://placehold.co/600x800/eeeeee/000000?text=请替换为+白发神女(流泪妆)', 
+    description: '神性 / 悲悯 / 情绪' 
+  },
+
+  // === 类别：复原与传统 (restoration) ===
+  { 
+    id: '4', 
+    title: '翠鸾 (Green Phoenix)', 
+    category: 'restoration', 
+    imageUrl: 'https://placehold.co/600x900/0f3d0f/FFFFFF?text=请替换为+绿色重工头饰(孔雀羽)', 
+    description: '华丽头冠 / 传统复原' 
+  },
+  { 
+    id: '5', 
+    title: '司命 (Destiny)', 
+    category: 'restoration', 
+    imageUrl: 'https://placehold.co/600x900/8B1E1E/FFFFFF?text=请替换为+红衣持杖(提灯)', 
+    description: '宗教感 / 传统服饰' 
+  },
+  { 
+    id: '6', 
+    title: '汉宫双姝 (Palace Duo)', 
+    category: 'restoration', 
+    imageUrl: 'https://placehold.co/600x800/333333/FFFFFF?text=请替换为+双人复原(屏风背景)', 
+    description: '双人写真 / 故事感' 
+  },
+  { 
+    id: '7', 
+    title: '游园 (The Garden)', 
+    category: 'restoration', 
+    imageUrl: 'https://placehold.co/600x800/B08D55/FFFFFF?text=请替换为+双人坐姿(蓝衣)', 
+    description: '园林实景 / 传统礼仪' 
+  },
+
+  // === 类别：唯美情绪 (portrait) ===
+  { 
+    id: '8', 
+    title: '青蛇 (Green Snake)', 
+    category: 'portrait', 
+    imageUrl: 'https://placehold.co/600x900/2F4F4F/FFFFFF?text=请替换为+绿衣撑伞(桥边)', 
+    description: '氛围感 / 电影画幅' 
+  },
+  { 
+    id: '9', 
+    title: '惊鸿 (Grace)', 
+    category: 'portrait', 
+    imageUrl: 'https://placehold.co/600x800/556B2F/FFFFFF?text=请替换为+绿衣舞蹈动态', 
+    description: '动态捕捉 / 情绪表达' 
+  }
 ];
 
-// 服务价格表 (Service Rates based on your image)
+// 服务价格表 (Service Rates)
 export const SERVICE_PACKAGES: ServicePackage[] = [
   {
     title: "单人写真 (Solo Portrait)",
