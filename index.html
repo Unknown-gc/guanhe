@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>关河未冷 | Guanhe Weileng Photography</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>关河未冷 | 独立摄影师</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Noto Serif SC for the Neo-Chinese look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -14,30 +13,43 @@
         theme: {
           extend: {
             colors: {
-              'vermilion': '#C91F37',
-              'imperial-gold': '#F0C239',
-              'deep-ink': '#0F0F12',
-              'rice-paper': '#F7F5F0',
-              'stone-gray': '#1c1c1f',
+              'xuan': '#F7F4ED',       // Main background: Warm Rice Paper
+              'ink': '#2B2B2B',        // Main Text: Deep Charcoal/Ink
+              'ink-light': '#595959',  // Secondary Text: Soft Ink
+              'paper': '#FFFFFF',      // Pure White elements
+              'vermilion': '#8B1E1E',  // Accents: Seal Red / Cinnabar
+              'gold': '#B08D55',       // Accents: Antique Bronze/Gold (Darker for light bg)
+              'gold-light': '#F0C239', // Bright gold for dark backgrounds (Hero)
             },
             fontFamily: {
               serif: ['"Noto Serif SC"', '"Playfair Display"', 'serif'],
-              sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            },
-            writingMode: {
-              'vertical-rl': 'vertical-rl',
-            },
-          },
-        },
+              sans: ['system-ui', 'sans-serif'],
+            }
+          }
+        }
       }
     </script>
     <style>
-      /* Custom utilities for vertical text */
-      .writing-vertical-rl {
-        writing-mode: vertical-rl;
-        text-orientation: upright;
+      body {
+        background-color: #F7F4ED;
+        color: #2B2B2B;
+        overflow-y: scroll; /* Allow scrolling within the component, but prevent body scroll hijacking */
       }
-      /* Hide scrollbar for clean look in specific areas */
+      /* Hide scrollbar for cleaner look in some browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 4px; /* For horizontal scroll */
+      }
+      ::-webkit-scrollbar-track {
+        background: #F7F4ED;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #B08D55;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8B1E1E;
+      }
       .no-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -45,26 +57,47 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
+
+      /* 🔴 Hot Stamping Gold Shimmer Effect (烫金流光效果) */
+      .text-gold-shimmer {
+        background: linear-gradient(
+          110deg,
+          #996515 0%,
+          #d4af37 18%,
+          #fcf6ba 35%,
+          #d4af37 52%,
+          #996515 70%,
+          #b8860b 100%
+        );
+        background-size: 200% auto;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        animation: shine 5s linear infinite;
+        text-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+      }
+
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
   }
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-deep-ink text-rice-paper antialiased selection:bg-vermilion selection:text-white">
+  <body>
     <div id="root"></div>
-    <!-- 🔴 修复：添加应用入口脚本，解决部署后黑屏问题 -->
-    <script type="module" src="./index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>

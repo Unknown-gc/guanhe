@@ -1,86 +1,74 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { BRAND, HERO_IMAGES } from '../constants';
+import { Page } from '../types';
 
-const heroImages = [
-  'https://picsum.photos/seed/feisheng/1920/1080',
-  'https://picsum.photos/seed/jingwei/1920/1080',
-  'https://picsum.photos/seed/luocha/1920/1080',
-];
+interface HeroProps {
+  setPage: (page: Page) => void;
+}
 
-const Hero: React.FC = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % heroImages.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
-
+const Hero: React.FC<HeroProps> = ({ setPage }) => {
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-deep-ink">
-      {/* Background Slider */}
-      {heroImages.map((img, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ 
-            opacity: index === currentImage ? 0.4 : 0,
-            scale: index === currentImage ? 1 : 1.1
-          }}
-          transition={{ duration: 2.5, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${img})` }}
+    <div className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+      
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        <img 
+          src={HERO_IMAGES[0]} 
+          alt="Hero Background" 
+          className="w-full h-full object-cover opacity-90"
         />
-      ))}
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-deep-ink/30 via-transparent to-deep-ink"></div>
-
-      {/* Content */}
-      <div className="relative z-10 h-full max-w-7xl mx-auto px-6 flex items-center justify-between">
-        
-        {/* Left: Description */}
-        <div className="hidden md:block w-1/3">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="space-y-6 border-l border-imperial-gold/30 pl-8"
-          >
-            <p className="text-imperial-gold font-serif tracking-[0.2em] text-sm">合肥独立女摄</p>
-            <p className="text-rice-paper/80 text-xs leading-loose max-w-xs">
-              以光影为笔，绘古韵今风。<br/>
-              Capturing the eternal soul through the lens of tradition.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Center/Right: Vertical Title */}
-        <div className="flex-1 flex justify-center md:justify-end h-[60vh] items-center md:mr-20">
-          <div className="flex space-x-8 md:space-x-12 h-full writing-vertical-rl items-center">
-             <motion.h1 
-              initial={{ opacity: 0, height: '0%' }}
-              animate={{ opacity: 1, height: '100%' }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              className="font-serif text-6xl md:text-8xl text-rice-paper tracking-[0.15em] font-bold drop-shadow-2xl border-l-2 border-transparent"
-            >
-              <span className="text-vermilion">关</span>河未冷
-            </motion.h1>
-            
-            <motion.div
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ delay: 0.8, duration: 1 }}
-               className="h-full flex flex-col justify-between py-4"
-            >
-               <span className="text-imperial-gold tracking-[0.3em] text-xs uppercase">Photography Portfolio</span>
-               <span className="w-[1px] h-32 bg-imperial-gold/50 block mx-auto mt-4"></span>
-            </motion.div>
-          </div>
-        </div>
       </div>
-    </section>
+
+      {/* Main Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full max-w-5xl mx-auto px-4">
+        
+        {/* Vertical Chinese Text Layout */}
+        <div className="flex flex-row-reverse items-start gap-8 md:gap-16 h-[60vh]">
+          
+          {/* Name Column - Applied text-gold-shimmer here */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="writing-vertical-rl text-6xl md:text-8xl font-serif border-l-2 border-vermilion pl-4 md:pl-8 py-4 tracking-widest drop-shadow-2xl text-gold-shimmer"
+          >
+            {BRAND.name}
+          </motion.div>
+
+          {/* Tagline Column - Explicit text-gold for Hero */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="writing-vertical-rl text-xl md:text-2xl font-light text-gold-light/90 tracking-widest mt-16"
+          >
+            {BRAND.tagline}
+          </motion.div>
+          
+        </div>
+
+        {/* Enter Button */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          onClick={() => setPage(Page.PORTFOLIO)}
+          className="mt-12 px-8 py-3 border border-gold-light text-gold-light hover:bg-vermilion hover:border-vermilion hover:text-white transition-all duration-500 uppercase tracking-[0.3em] text-sm font-medium"
+        >
+          Enter Portfolio
+        </motion.button>
+      </div>
+
+      {/* Custom CSS for vertical writing */}
+      <style>{`
+        .writing-vertical-rl {
+          writing-mode: vertical-rl;
+          text-orientation: upright;
+        }
+      `}</style>
+    </div>
   );
 };
 

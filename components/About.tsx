@@ -1,58 +1,63 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ABOUT_INFO } from '../constants';
+import { BRAND, HERO_IMAGES } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <section className="bg-stone-gray py-24 relative overflow-hidden flex-grow flex items-center">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-0 left-0 w-64 h-64 opacity-5 pointer-events-none">
-            <svg viewBox="0 0 100 100" fill="none" stroke="white" strokeWidth="0.5">
-                <circle cx="50" cy="50" r="40" />
-                <circle cx="50" cy="50" r="30" />
-            </svg>
+    <div className="min-h-screen pt-40 md:pt-32 pb-20 px-4 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      
+      {/* Image Side */}
+      <motion.div 
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full md:w-1/2 relative"
+      >
+        <div className="relative aspect-[3/4] overflow-hidden border border-ink/10 p-2 bg-white shadow-md">
+           {/* Decorative Border */}
+           <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gold"></div>
+           <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gold"></div>
+           
+           <img 
+            src={HERO_IMAGES[1]} 
+            alt="Photographer" 
+            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+          />
+        </div>
+      </motion.div>
+
+      {/* Text Side */}
+      <motion.div 
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="w-full md:w-1/2 space-y-8"
+      >
+        <div>
+          <h2 className="text-4xl md:text-5xl font-serif text-ink mb-2">{BRAND.name}</h2>
+          <p className="text-gold tracking-widest uppercase text-sm">{BRAND.enName}</p>
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16 z-10">
-            {/* Image Section */}
-            <div className="w-full md:w-1/2 h-[500px] relative">
-                <div className="absolute top-4 left-4 w-full h-full border border-vermilion/30 z-0"></div>
-                <div className="absolute inset-0 bg-gray-800 overflow-hidden z-10">
-                     <img src={ABOUT_INFO.imageUrl} alt="Photographer" className="w-full h-full object-cover grayscale opacity-80 hover:opacity-100 transition-opacity duration-500"/>
-                </div>
-            </div>
-            
-            {/* Text Section */}
-            <div className="w-full md:w-1/2">
-                <motion.div
-                   initial={{ opacity: 0, x: 20 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.8 }}
-                >
-                    <h2 className="text-imperial-gold text-xs tracking-[0.3em] uppercase mb-4">{ABOUT_INFO.titleEN}</h2>
-                    <h3 className="text-3xl md:text-4xl font-serif text-rice-paper mb-8 tracking-widest">{ABOUT_INFO.titleCN}</h3>
-                    
-                    <div className="space-y-6 text-rice-paper/80 text-base leading-relaxed font-light text-justify">
-                        <p>{ABOUT_INFO.intro1}</p>
-                        <p>{ABOUT_INFO.intro2}</p>
-                        <p>{ABOUT_INFO.intro3}</p>
-                    </div>
-
-                    <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-2 gap-8">
-                         <div>
-                             <h4 className="text-rice-paper font-serif text-2xl mb-1">{ABOUT_INFO.expNumber}</h4>
-                             <span className="text-xs text-gray-500 uppercase tracking-wider">{ABOUT_INFO.expLabel}</span>
-                         </div>
-                         <div>
-                             <h4 className="text-rice-paper font-serif text-2xl mb-1">{ABOUT_INFO.conceptNumber}</h4>
-                             <span className="text-xs text-gray-500 uppercase tracking-wider">{ABOUT_INFO.conceptLabel}</span>
-                         </div>
-                    </div>
-                </motion.div>
-            </div>
+        <div className="space-y-6 text-ink-light leading-loose text-justify font-light">
+          <p>
+            {BRAND.tagline}。
+          </p>
+          <p>
+            常驻安徽合肥。热爱中国传统文化，致力于将汉服复原与现代审美相结合，创作出具有故事感和情绪张力的影像作品。
+          </p>
+          <p>
+            无论是神话传说中的精卫填海，还是历史长河里的汉宫秋月，镜头不仅是记录，更是一种“飞升”般的艺术表达。
+          </p>
+          <p>
+            擅长：神话脑洞、唯美情绪、复原传统。
+          </p>
         </div>
-    </section>
+
+        <div className="pt-8 border-t border-ink/10">
+          <p className="text-vermilion font-serif italic text-lg">"Let's try different themes and styles together."</p>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

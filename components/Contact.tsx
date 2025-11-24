@@ -1,87 +1,87 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageCircle, Instagram, Smartphone, AtSign } from 'lucide-react';
+import { Mail, MapPin, Smartphone, Instagram, Send } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 
 const Contact: React.FC = () => {
   return (
-    <section className="flex-grow flex items-center justify-center py-20 px-4">
-      <div className="max-w-5xl w-full flex flex-col md:flex-row gap-12 items-center">
-        
-        {/* Left: Text Info */}
-        <div className="w-full md:w-1/2 text-center md:text-left">
-            <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-            >
-                <h2 className="text-imperial-gold text-xs tracking-[0.3em] uppercase mb-4">Contact Me</h2>
-                <h1 className="text-4xl md:text-5xl font-serif text-rice-paper mb-6 tracking-widest">联系方式</h1>
-                <p className="text-rice-paper/60 text-sm leading-loose font-light mb-8">
-                    独立摄影师，专注于汉服与创意人像。<br/>
-                    请提前预约档期。
-                </p>
-                <div className="hidden md:block w-24 h-[1px] bg-vermilion"></div>
-            </motion.div>
+    <div className="min-h-screen pt-40 md:pt-32 pb-20 px-4 max-w-4xl mx-auto flex items-center justify-center">
+      
+      <div className="w-full bg-white border border-ink/5 p-8 md:p-16 relative overflow-hidden backdrop-blur-md shadow-xl">
+        {/* Decorative Background Symbol (Abstract) */}
+        <div className="absolute -right-20 -top-20 text-ink/5 text-[300px] font-serif select-none pointer-events-none">
+          拍
         </div>
 
-        {/* Right: Contact Cards */}
-        <div className="w-full md:w-1/2 grid grid-cols-1 gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative z-10"
+        >
+          {/* Header */}
+          <div className="mb-12">
+            <h2 className="text-4xl font-serif text-ink mb-2">联系我</h2>
+            <p className="text-gold tracking-[0.2em] uppercase text-sm">Contact Me</p>
+            <div className="w-12 h-[1px] bg-ink/20 mt-6"></div>
+          </div>
+
+          {/* Contact Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             
             {/* WeChat */}
-            <motion.div 
-               initial={{ opacity: 0, y: 10 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ delay: 0.1 }}
-               className="bg-white/5 border border-white/5 p-6 flex items-center space-x-4 hover:border-vermilion/50 transition-colors group"
-            >
-                <div className="p-3 bg-stone-gray rounded-full text-vermilion group-hover:scale-110 transition-transform">
-                    <MessageCircle size={20} />
-                </div>
-                <div>
-                    <p className="text-xs text-rice-paper/40 uppercase tracking-wider">WeChat 微信</p>
-                    <p className="text-lg text-rice-paper font-serif tracking-wide select-all">{CONTACT_INFO.wechat}</p>
-                </div>
-            </motion.div>
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-stone-100 rounded-full text-green-700 border border-ink/5">
+                <Send size={24} />
+              </div>
+              <div>
+                <h4 className="text-sm text-ink/50 uppercase tracking-wider mb-1">WeChat</h4>
+                <p className="text-xl text-ink font-serif select-all">{CONTACT_INFO.wechat}</p>
+              </div>
+            </div>
 
-            {/* Socials (XHS & Douyin) */}
-            <motion.div 
-               initial={{ opacity: 0, y: 10 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ delay: 0.2 }}
-               className="bg-white/5 border border-white/5 p-6 flex items-center space-x-4 hover:border-vermilion/50 transition-colors group"
-            >
-                <div className="p-3 bg-stone-gray rounded-full text-vermilion group-hover:scale-110 transition-transform">
-                    <Smartphone size={20} />
-                </div>
-                <div>
-                    <p className="text-xs text-rice-paper/40 uppercase tracking-wider">Social Media (XHS & Douyin)</p>
-                    <div className="flex flex-col">
-                        <span className="text-rice-paper select-all">小红书: {CONTACT_INFO.xiaohongshu}</span>
-                        <span className="text-rice-paper select-all">抖音: {CONTACT_INFO.douyin}</span>
-                    </div>
-                </div>
-            </motion.div>
+             {/* XiaoHongShu / Douyin */}
+             <div className="flex items-start space-x-4">
+              <div className="p-3 bg-stone-100 rounded-full text-vermilion border border-ink/5">
+                <Smartphone size={24} />
+              </div>
+              <div>
+                <h4 className="text-sm text-ink/50 uppercase tracking-wider mb-1">Social Media</h4>
+                <p className="text-base text-ink-light">小红书: {CONTACT_INFO.xiaohongshu}</p>
+                <p className="text-base text-ink-light">抖音: {CONTACT_INFO.douyin}</p>
+              </div>
+            </div>
 
             {/* Email */}
-            <motion.div 
-               initial={{ opacity: 0, y: 10 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ delay: 0.3 }}
-               className="bg-white/5 border border-white/5 p-6 flex items-center space-x-4 hover:border-vermilion/50 transition-colors group"
-            >
-                <div className="p-3 bg-stone-gray rounded-full text-vermilion group-hover:scale-110 transition-transform">
-                    <Mail size={20} />
-                </div>
-                <div>
-                    <p className="text-xs text-rice-paper/40 uppercase tracking-wider">Email 邮箱</p>
-                    <p className="text-lg text-rice-paper font-serif tracking-wide select-all">{CONTACT_INFO.email}</p>
-                </div>
-            </motion.div>
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-stone-100 rounded-full text-blue-800 border border-ink/5">
+                <Mail size={24} />
+              </div>
+              <div>
+                <h4 className="text-sm text-ink/50 uppercase tracking-wider mb-1">Email</h4>
+                <p className="text-lg text-ink font-serif select-all">{CONTACT_INFO.email}</p>
+              </div>
+            </div>
 
-        </div>
+            {/* Location */}
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-stone-100 rounded-full text-gold border border-ink/5">
+                <MapPin size={24} />
+              </div>
+              <div>
+                <h4 className="text-sm text-ink/50 uppercase tracking-wider mb-1">Location</h4>
+                <p className="text-base text-ink-light">{CONTACT_INFO.location}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-ink/5 text-center text-sm text-ink/40">
+            <p>为了保证拍摄质量，请提前预约档期。</p>
+            <p className="mt-2 text-xs opacity-60">Please book in advance to ensure quality.</p>
+          </div>
+        </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 
