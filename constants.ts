@@ -35,7 +35,7 @@ export const NAV_ITEMS: NavItem[] = [
 // 🔴 首页大图 (Hero Images)
 // 请在这里放入您最满意的横屏大图（建议使用精卫填海或双人复原的大场景图）
 export const HERO_IMAGES = [
-  "/images/4622DEF7D4DA22B531747D236B81DAEE.jpg", 
+  "/images/mmexport1763999396671.jpg", 
   "/images/5CED37618BE4A5E86C872842A417670F.jpg",
   "/images/8452019CDA58489BF2338404970A8612.jpg"
 ];
