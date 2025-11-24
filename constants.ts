@@ -35,9 +35,9 @@ export const NAV_ITEMS: NavItem[] = [
 // 🔴 首页大图 (Hero Images)
 // 请在这里放入您最满意的横屏大图（建议使用精卫填海或双人复原的大场景图）
 export const HERO_IMAGES = [
-  "https://placehold.co/1920x1080/2b2b2b/FFFFFF?text=请替换为+首页大图1(精卫红月)", 
-  "https://placehold.co/1920x1080/2b2b2b/FFFFFF?text=请替换为+首页大图2(双人复原)",
-  "https://placehold.co/1920x1080/2b2b2b/FFFFFF?text=请替换为+首页大图3(绿衣撑伞)"
+  "/images/4622DEF7D4DA22B531747D236B81DAEE.jpg", 
+  "/images/5CED37618BE4A5E86C872842A417670F.jpg",
+  "/images/8452019CDA58489BF2338404970A8612.jpg"
 ];
 
 // 🔴 作品集数据 (Portfolio Data)
@@ -48,21 +48,21 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     id: '1', 
     title: '精卫 (Jing Wei)', 
     category: 'mythology', 
-    imageUrl: 'https://placehold.co/600x900/8B1E1E/FFFFFF?text=请替换为+精卫填海(红月海浪)', 
+    imageUrl: '/images/4622DEF7D4DA22B531747D236B81DAEE.jpg', 
     description: '红月 / 锁链 / 海浪' 
   },
   { 
     id: '2', 
     title: '枯骨生花 (Life in Death)', 
     category: 'mythology', 
-    imageUrl: 'https://placehold.co/600x800/1a1a1a/FFFFFF?text=请替换为+枯骨生花(绿衣骷髅)', 
+    imageUrl: '/images/0107F722DA6313B6C86F833302BC0816.jpg', 
     description: '暗黑脑洞 / 生死极意' 
   },
   { 
     id: '3', 
     title: '神陨 (The Fallen)', 
     category: 'mythology', 
-    imageUrl: 'https://placehold.co/600x800/eeeeee/000000?text=请替换为+白发神女(流泪妆)', 
+    imageUrl: '/images/CB9C3A13C61EBD93AB10F392C920AD8A.jpg', 
     description: '神性 / 悲悯 / 情绪' 
   },
 
@@ -71,28 +71,28 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     id: '4', 
     title: '翠鸾 (Green Phoenix)', 
     category: 'restoration', 
-    imageUrl: 'https://placehold.co/600x900/0f3d0f/FFFFFF?text=请替换为+绿色重工头饰(孔雀羽)', 
+    imageUrl: '/images/CB9C3A13C61EBD93AB10F392C920AD8A.jpg', 
     description: '华丽头冠 / 传统复原' 
   },
   { 
     id: '5', 
     title: '司命 (Destiny)', 
     category: 'restoration', 
-    imageUrl: 'https://placehold.co/600x900/8B1E1E/FFFFFF?text=请替换为+红衣持杖(提灯)', 
+    imageUrl: '/images/3907A36BD9628CA38E30DAE1065C53E7.jpg', 
     description: '宗教感 / 传统服饰' 
   },
   { 
     id: '6', 
     title: '汉宫双姝 (Palace Duo)', 
     category: 'restoration', 
-    imageUrl: 'https://placehold.co/600x800/333333/FFFFFF?text=请替换为+双人复原(屏风背景)', 
+    imageUrl: '/images/EF509F208FB2B10C817EFEBA58F2DE40.jpg', 
     description: '双人写真 / 故事感' 
   },
   { 
     id: '7', 
     title: '游园 (The Garden)', 
     category: 'restoration', 
-    imageUrl: 'https://placehold.co/600x800/B08D55/FFFFFF?text=请替换为+双人坐姿(蓝衣)', 
+    imageUrl: '/images/F6A4C060D8105D62FAF6D531D782955C.jpg', 
     description: '园林实景 / 传统礼仪' 
   },
 
@@ -101,14 +101,14 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     id: '8', 
     title: '青蛇 (Green Snake)', 
     category: 'portrait', 
-    imageUrl: 'https://placehold.co/600x900/2F4F4F/FFFFFF?text=请替换为+绿衣撑伞(桥边)', 
+    imageUrl: '/images/A3CEC24DDE2BA721B95DF345015D74F7.jpg', 
     description: '氛围感 / 电影画幅' 
   },
   { 
     id: '9', 
     title: '惊鸿 (Grace)', 
     category: 'portrait', 
-    imageUrl: 'https://placehold.co/600x800/556B2F/FFFFFF?text=请替换为+绿衣舞蹈动态', 
+    imageUrl: '/images/F0DFE95EE472A505EDEE9AB967AA749F.jpg', 
     description: '动态捕捉 / 情绪表达' 
   }
 ];
